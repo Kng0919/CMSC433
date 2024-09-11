@@ -104,5 +104,18 @@ method test7(a: int,b: int){
 
 
 // {x = y} x := y * 2 {x = x * 2}
+method test8(a:int, b:int){
+    var x,y := a, b;
+
+    //assume x == y;
+    assert x == y;
+    assert y * 2 == y * 2;
+    x := y * 2;
+    assert x == 2 * y;
+}
 //{x + 3 = z} x := x + 3 {x = z}
-//{} x:= x + 1; y:= y * x{y = 2 * z}
+//{y * (x+1) = 2 * z} x:= x + 1; y:= y * x{y = 2 * z}
+//{x > 0} 
+method test9(){
+    if(x>0) then y := x else y:= 0 {y > 0}
+}
